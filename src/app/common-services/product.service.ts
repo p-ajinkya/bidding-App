@@ -13,4 +13,12 @@ export class ProductService {
   fetchAllProducts(){
     return this.httpClient.get(`${mainUrl}/products`);
   }
+
+  fetchSingleProduct(id){
+    return this.httpClient.get(`${mainUrl}/products?id=${id}`);
+  }
+
+  fetchBiddingHistory(id){
+    return this.httpClient.get(`${mainUrl}/bids?productId=${id}`);
+  }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../../app/common-services/product.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-account',
@@ -8,7 +9,7 @@ import { ProductService } from '../../../app/common-services/product.service';
 })
 export class AccountComponent implements OnInit {
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService, private router: Router) { }
   productsArray: any = []
   ngOnInit(): void {
     this.fetchAllProducts();
@@ -22,5 +23,8 @@ export class AccountComponent implements OnInit {
     })
   }
 
+  gotoDetails(details){
+    this.router.navigateByUrl(`/dashboard/details/${details.id}`)
+  }
 
 }
