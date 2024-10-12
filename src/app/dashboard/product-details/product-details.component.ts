@@ -13,7 +13,7 @@ export class ProductDetailsComponent implements OnInit {
   constructor(private loginService: LoginService, private productService: ProductService, private router: ActivatedRoute) { }
   loggedInUser: any;
   productDetails: any;
-  biddingHistory = [];
+  biddingHistory: any = [];
   ngOnInit(): void {
     this.router.params.subscribe(data=> {
       console.log(data);
@@ -34,9 +34,7 @@ export class ProductDetailsComponent implements OnInit {
   fetchBiddingHostory(){
     let historyArr: any = [];
     this.productService.fetchBiddingHistory(this.productDetails.id).subscribe(data=>{
-      console.log(data)
-      historyArr = data;
-      // this.biddingHistory = historyArr.find(item => item.prod)
+      this.biddingHistory = data;
     },error=>{
       console.log(error);
     })
