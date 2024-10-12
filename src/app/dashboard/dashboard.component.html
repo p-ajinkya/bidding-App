@@ -1,0 +1,67 @@
+  <!-- Header -->
+  <header id="header" class="bg-white border-bottom border-light-subtle sticky-top bsb-tpl-header-sticky">
+    <nav class="navbar navbar-expand-md bsb-navbar-3 bsb-tpl-navbar-sticky" data-bsb-sticky-target="#header">
+      <div class="container">
+        <ul class="navbar-nav">
+          <li class="nav-item me-3">
+            <a class="nav-link" href="#!" data-bs-toggle="offcanvas" data-bs-target="#bsbSidebar1" aria-controls="bsbSidebar1">
+              <i class="bi-filter-left fs-3 lh-1"></i>
+            </a>
+          </li>
+        </ul>
+        <a class="navbar-brand" href="index.html">
+          <img src="./assets/img/branding/console-logo.svg" class="bsb-tpl-logo" alt="BootstrapBrain Logo">
+        </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#bsbNavbar" aria-controls="bsbNavbar" aria-label="Toggle Navigation">
+          <i class="bi bi-three-dots"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="bsbNavbar">
+          <ul class="navbar-nav bsb-dropdown-menu-responsive ms-auto align-items-center">
+            
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle bsb-dropdown-toggle-caret-disable" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="./assets/img/profile/profile-img-1.jpg" width="35" height="35" class="img-fluid rounded-circle" alt="Ethan Leo">
+              </a>
+              <ul class="dropdown-menu dropdown-menu-md-end bsb-dropdown-animation bsb-fadeIn">
+                <li>
+                  <h6 class="dropdown-header fs-7 text-center">Welcome, {{loggedInUser.name}}</h6>
+                </li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li>
+                  <a href="pages-profile.html" class="dropdown-item" aria-current="true">
+                    <div class="row g-0 align-items-center">
+                      <div class="col-3">
+                        <img src="./assets/img/profile/profile-img-1.jpg" width="55" height="55" class="img-fluid rounded-circle" alt="Ethan Leo">
+                      </div>
+                      <div class="col-9">
+                        <div class="ps-3">
+                          <div class="text-secondary mt-1 fs-7">Premium Account</div>
+                          <!-- <div class="text-secondary mt-1 fs-7">leo@example.com</div> -->
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li>
+                  <a class="dropdown-item text-center" href="auth-logout.html">
+                    <span>
+                      <span class="fs-7">Log Out</span>
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main id="main">
+    <app-account></app-account>
+
+  </main>
