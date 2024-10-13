@@ -10,7 +10,9 @@ const mainUrl = environment.serverUrl;
 export class LoginService {
 
   constructor( private httpClient: HttpClient ) { }
-
+  bidderPermissions = [
+    'Place_Bid'
+  ]
   login(){
     return this.httpClient.get(`${mainUrl}/signUpUsers`);
   }
@@ -26,5 +28,23 @@ export class LoginService {
     localStorage.getItem('user');
     let str: any = localStorage.getItem('user');
     return JSON.parse(str);
+  }
+
+  public checkAccessPermission(permissionToCheck): boolean | any{
+    let user = this.getLoggedUserDetails();
+    if(user.role == 'seller'){
+
+    }
+    if(user.role == 'bidder'){
+      if(this.bidderPermissions.includes(permissionToCheck)){
+        return true;
+      }else{
+        return false;
+      }
+    }
+  }
+
+  getSingleUserDetails(id){
+    return this.httpClient.get(`${mainUrl}/signUpUsers?id=${id}`);
   }
 }

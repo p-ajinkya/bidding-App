@@ -40,4 +40,16 @@ export class ProductDetailsComponent implements OnInit {
     })
   }
 
+  getuserdetails(userid){
+    this.loginService.getSingleUserDetails(userid).subscribe(data=>{
+      console.log(data);
+      },error=>{
+        console.log(error);
+      })
+  }
+
+  checkAccessPermission(permissionToCheck){
+    return this.loginService.checkAccessPermission(permissionToCheck)
+  }
+
 }

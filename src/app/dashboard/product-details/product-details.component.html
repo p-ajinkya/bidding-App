@@ -116,11 +116,11 @@
                                 <li class="timeline-item" *ngFor="let eachBid of biddingHistory">
                                   <div class="timeline-body">
                                     <div class="timeline-meta">
-                                      <span>32 minutes</span>
+                                      <span>{{eachBid.bidTime | date:'dd/MM/yyyy, h:mm a'}}</span>
                                     </div>
                                     <div class="timeline-content timeline-indicator">
-                                      <h6 class="mb-1">Amount received in the PayPal gateway.</h6>
-                                      <span class="text-secondary fs-7">User: William Lucas</span>
+                                      <h6 class="mb-1">Bid Amount : {{eachBid.bidAmount | currency:'INR'}}</h6>
+                                      <span class="text-secondary fs-7">User: {{getuserdetails(eachBid.userId)}}</span>
                                     </div>
                                   </div>
                                 </li>
