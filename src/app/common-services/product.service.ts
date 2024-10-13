@@ -21,4 +21,12 @@ export class ProductService {
   fetchBiddingHistory(id){
     return this.httpClient.get(`${mainUrl}/bids?productId=${id}`);
   }
+
+  addNewBid(bidData){
+    return this.httpClient.post(`${mainUrl}/bids`, bidData);
+  }
+
+  editProduct(id, value){
+    return this.httpClient.put(`${mainUrl}/products?id=${id}`, value);
+  }
 }

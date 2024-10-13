@@ -4,6 +4,9 @@ import { DashboardComponent } from './dashboard.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AccountComponent } from './account/account.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { PlaceBidComponent } from './place-bid/place-bid.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -20,11 +23,15 @@ const routes: Routes = [
   declarations: [
     DashboardComponent,
     AccountComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    PlaceBidComponent
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
+    NgbModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class DashboardModule { }

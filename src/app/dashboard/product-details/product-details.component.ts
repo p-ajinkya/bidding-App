@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { LoginService } from '../../../app/common-services/login.service';
 import { ProductService } from '../../../app/common-services/product.service';
 import { ActivatedRoute } from '@angular/router';
+import { PlaceBidComponent } from '../place-bid/place-bid.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-product-details',
@@ -10,10 +12,13 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProductDetailsComponent implements OnInit {
 
-  constructor(private loginService: LoginService, private productService: ProductService, private router: ActivatedRoute) { }
+  constructor(private loginService: LoginService, private productService: ProductService, 
+    private router: ActivatedRoute, private modalService: NgbModal) { }
   loggedInUser: any;
   productDetails: any;
   biddingHistory: any = [];
+  placeBidopen: boolean = false;
+  viewHistory: boolean = false;
   ngOnInit(): void {
     this.router.params.subscribe(data=> {
       console.log(data);
@@ -32,6 +37,8 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   fetchBiddingHostory(){
+    this.viewHistory = true;
+    this.placeBidopen = false;
     this.productService.fetchBiddingHistory(this.productDetails.id).subscribe(data=>{
       this.biddingHistory = data;
     },error=>{
@@ -52,6 +59,15 @@ export class ProductDetailsComponent implements OnInit {
 
   checkAccessPermission(permissionToCheck){
     return this.loginService.checkAccessPermission(permissionToCheck)
+  }
+
+  @ViewChild('placeBid') placeBid: ElementRef;
+
+
+  openPlaceBid() {
+    this.viewHistory = false;
+    this.placeBidopen = true;
+    // this.modalService.open(this.placeBid)
   }
 
 }
