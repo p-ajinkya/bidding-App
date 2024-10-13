@@ -17,6 +17,14 @@
       "phone": "9876543210",
       "address": "Pune",
       "role": "bidder"
+    },{
+      "id": "08f9",
+      "name": "Rohan Bidder",
+      "email": "rohan.bidder@gmail.com",
+      "password": "bidder123",
+      "phone": "9876543210",
+      "address": "Pune",
+      "role": "bidder"
     }
   ],
   "products": [
@@ -61,21 +69,21 @@
     {
       "id": 1,
       "productId": 1,
-      "userId": 1,
+      "userId": "08f2",
       "bidAmount": 310,
       "bidTime": "2024-10-12T10:05:00Z"
     },
     {
       "id": 2,
       "productId": 1,
-      "userId": 2,
+      "userId": "08f9",
       "bidAmount": 320,
       "bidTime": "2024-10-12T10:10:00Z"
     },
     {
       "id": 3,
       "productId": 2,
-      "userId": 1,
+      "userId": "08f9",
       "bidAmount": 510,
       "bidTime": "2024-10-12T11:00:00Z"
     }

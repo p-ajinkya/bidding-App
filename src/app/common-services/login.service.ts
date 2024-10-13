@@ -8,7 +8,7 @@ const mainUrl = environment.serverUrl;
   providedIn: 'root'
 })
 export class LoginService {
-
+  allUsers: any = [];
   constructor( private httpClient: HttpClient ) { }
   bidderPermissions = [
     'Place_Bid'
@@ -46,5 +46,12 @@ export class LoginService {
 
   getSingleUserDetails(id){
     return this.httpClient.get(`${mainUrl}/signUpUsers?id=${id}`);
+  }
+
+  getUserNameById(){
+    return this
+    // let UsersArr: any = localStorage.getItem('allusers');
+    // UsersArr = JSON.parse(UsersArr);
+    // return UsersArr;
   }
 }

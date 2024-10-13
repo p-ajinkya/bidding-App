@@ -32,7 +32,6 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   fetchBiddingHostory(){
-    let historyArr: any = [];
     this.productService.fetchBiddingHistory(this.productDetails.id).subscribe(data=>{
       this.biddingHistory = data;
     },error=>{
@@ -40,12 +39,15 @@ export class ProductDetailsComponent implements OnInit {
     })
   }
 
-  getuserdetails(userid){
-    this.loginService.getSingleUserDetails(userid).subscribe(data=>{
-      console.log(data);
-      },error=>{
-        console.log(error);
-      })
+  userCache: any = {};
+  getuserdetails(userId){
+    if (this.userCache[userId]) {
+      return  this.userCache[userId][0].name;
+    }
+    return this.loginService.getSingleUserDetails(userId).subscribe(userDetails => {
+      this.userCache[userId] = userDetails;
+      return userDetails[0].name;
+    });
   }
 
   checkAccessPermission(permissionToCheck){

@@ -33,12 +33,12 @@ export class LoginComponent implements OnInit {
       const { email, password } = this.loginForm.value;
       this.loginService.login().subscribe({
         next: (response) => {
-          console.log(response);
           usersArray = response;
           const user = usersArray?.find(user => user.email === email && user.password === password);
           if(user){
             console.log(user);
             localStorage.setItem('user', JSON.stringify(user));
+            localStorage.setItem('allusers', JSON.stringify(usersArray))
             this.router.navigate(['/dashboard']);
           }
         },
