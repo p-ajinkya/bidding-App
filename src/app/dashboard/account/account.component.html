@@ -72,7 +72,7 @@
                   </div>
                 <!-- <h6 class="text-success">Free shipping</h6> -->
                 <div class="d-flex flex-column mt-4">
-                  <button *ngIf="checkAccessPermission('Place_Bid')" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-sm" type="button">Place Bids</button>
+                  <button *ngIf="checkAccessPermission('Place_Bid')" (click)="gotoDetails(eachProduct)" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-sm" type="button">Place Bids</button>
                   <button (click)="gotoDetails(eachProduct)" data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-primary btn-sm mt-2" type="button">
                     View Bids
                   </button>
